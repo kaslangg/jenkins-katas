@@ -5,10 +5,9 @@ pipeline {
       steps {
       stash excludes: '.git', name: 'code'
       }
+    }
     stage('Hello Motherfucker') {
-                options {
-                  skipDefaultCheckout true
-                  }
+                options {skipDefaultCheckout true}
       parallel {
         stage('Hello Motherfucker') {
 
@@ -38,4 +37,4 @@ pipeline {
     }
 
   }
-  } }
+  }
