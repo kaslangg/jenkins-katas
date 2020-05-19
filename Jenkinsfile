@@ -42,8 +42,8 @@ pipeline {
             }
           }
           steps {
+            unstash 'code'
             sh 'ci/unit-test-app.sh'
-            archiveArtifacts 'app/build/libs/'
             sh 'echo Testing'
             junit 'app/build/test-results/test/TEST-*.xml'
           }
