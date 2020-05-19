@@ -31,6 +31,24 @@ pipeline {
             sh 'echo "Just look how parallel we are"'
           }
         }
+        
+                stage('Test this shit') {
+          options {
+            skipDefaultCheckout true
+          }
+          agent {
+            docker {
+              image 'gradle:jdk11'
+            }
+          }
+          steps {
+            sh 'ci/unit-test-app.sh'
+            archiveArtifacts 'app/build/libs/'
+            sh 'echo Testing'
+            junit 'app/build/test-results/test/TEST-*.xml'
+          }
+        }
+        
 
       }
     }
