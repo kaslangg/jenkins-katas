@@ -18,16 +18,11 @@ pipeline {
           }
           steps {
             sh 'ci/build-app.sh'
+            archiveArtifacts 'app/build/libs/'
             sh 'echo "Just look how parallel we are"'
           }
         }
 
-      }
-    }
-
-    stage('Going library') {
-      steps {
-        archiveArtifacts 'app/build/libs/'
       }
     }
 
