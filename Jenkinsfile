@@ -25,5 +25,11 @@ pipeline {
       }
     }
 
+    stage('Going library') {
+      steps {
+        archiveArtifacts 'app/build/libs/'
+      }
+    }
+
   }
 }
