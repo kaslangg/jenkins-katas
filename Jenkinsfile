@@ -2,7 +2,9 @@ pipeline {
   agent any
   stages {
     stage('Clone Down') {
+      steps {
       stash excludes: '.git', name: 'code'
+      }
     }
     stage('Hello Motherfucker') {
       parallel {
