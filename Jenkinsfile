@@ -4,6 +4,7 @@ pipeline {
 
             deleteDir() /* clean up our workspace */
         }
+      }
   agent any
   stages {
     stage('Clone Down') {
