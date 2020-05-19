@@ -24,11 +24,8 @@ pipeline {
               image 'gradle:jdk11'
             }
           }
-          
           steps {
             unstash 'code'
-          }
-          steps {
             sh 'ci/build-app.sh'
             archiveArtifacts 'app/build/libs/'
             sh 'echo "Just look how parallel we are"'
