@@ -9,6 +9,9 @@ pipeline {
     stage('Hello Motherfucker') {
       parallel {
         stage('Hello Motherfucker') {
+          options {
+                  skipDefaultCheckout true
+                  }
           steps {
             sh 'echo "What up daug? This is parrellel"'
           }
@@ -20,6 +23,9 @@ pipeline {
               image 'gradle:jdk11'
             }
 
+          }
+          steps {
+            unstash 'code'
           }
           steps {
             sh 'ci/build-app.sh'
