@@ -5,7 +5,7 @@ pipeline {
       parallel {
         stage('Hello Motherfucker') {
           steps {
-            sh 'echo "What up daug?"'
+            sh 'echo "What up daug? This is parrellel"'
           }
         }
 
@@ -18,6 +18,7 @@ pipeline {
           }
           steps {
             sh 'ci/build-app.sh'
+            sh 'echo "Just look how parallel we are"'
           }
         }
 
