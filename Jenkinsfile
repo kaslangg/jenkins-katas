@@ -6,11 +6,12 @@ pipeline {
       stash excludes: '.git', name: 'code'
       }
     stage('Hello Motherfucker') {
-      parallel {
-        stage('Hello Motherfucker') {
-          options {
+                options {
                   skipDefaultCheckout true
                   }
+      parallel {
+        stage('Hello Motherfucker') {
+
           steps {
             sh 'echo "What up daug? This is parrellel"'
           }
@@ -21,8 +22,8 @@ pipeline {
             docker {
               image 'gradle:jdk11'
             }
-
           }
+          
           steps {
             unstash 'code'
           }
@@ -37,4 +38,4 @@ pipeline {
     }
 
   }
-}
+  } }
