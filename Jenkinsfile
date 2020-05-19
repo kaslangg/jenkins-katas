@@ -5,7 +5,6 @@ pipeline {
       steps {
       stash excludes: '.git', name: 'code'
       }
-    }
     stage('Hello Motherfucker') {
       parallel {
         stage('Hello Motherfucker') {
