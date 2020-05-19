@@ -7,16 +7,16 @@ pipeline {
       }
     }
     stage('Hello Motherfucker') {
-                options {skipDefaultCheckout true}
+                
       parallel {
         stage('Hello Motherfucker') {
-
           steps {
             sh 'echo "What up daug? This is parrellel"'
           }
         }
 
         stage('Build this shit') {
+          options {skipDefaultCheckout true}
           agent {
             docker {
               image 'gradle:jdk11'
